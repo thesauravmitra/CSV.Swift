@@ -36,6 +36,14 @@ public class CSVParser {
         }
     }
 
+    public func parseHeader() {
+      guard hasHeader, header == nil else { return }
+      guard let rawData = next() else { return }
+
+      hasHeader = false
+      header = rawData
+    }
+
     /**
      Returns the next item parsed as Array of Strings (if not further rows avaliable, returns nil)
      */
